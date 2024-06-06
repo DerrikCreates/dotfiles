@@ -1,0 +1,100 @@
+" useful read https://web.archive.org/web/20240606025957/https://www.cyberwizard.io/posts/the-ultimate-ideavim-setup/
+set verbose=15
+
+let mapleader = " "
+set relativenumber
+set number
+set scrolloff=10
+set sneak
+set which-key
+set highlightedyank
+set showmode
+set showcmd
+
+" use system clipboard
+set clipboard+=unnamed
+set commentary
+set visualbell
+set surround
+set nerdtree
+
+set easymotion
+set notimeout
+
+
+set ignorecase
+set smartcase
+set incsearch
+set hlsearch
+
+
+let g:sneak:s_next =1
+let g:sneak:sv_next =1
+let g:WhichKey_FontSize=22
+let g:WhichKey_KeyStyle="bold"
+let g:WhichKey_KeyColor="#FF0D51"
+let g:WhichKey_DefaultDelay=0
+filetype plugin indent on
+
+unmap s 
+map s <Plug>Sneak_s
+
+nnoremap <A-n> :tabnext<CR>
+nnoremap <A-p> :tabprev<CR>
+
+"leader binds
+
+map <leader>j <Plug>(easymotion-s)
+
+" Folding
+let g:WhichKeyDesc_CollapseGroup = "<leader>z Collapse controls"
+let g:WhichKeyDesc_CollapseRegion = "<leader>zc Collapse Region"
+let g:WhichKeyDesc_ExpandRegion = "<leader>ze Expand Region"
+let g:WhichKeyDesc_ExpandAll = "<leader>zz Expand All"
+
+let g:WhichKeyDesc_ExpandAll = "<leader>n Next Tab"
+let g:WhichKeyDesc_ExpandAll = "<leader>p Previous Tab"
+map <leader>zc :action CollapseRegion<CR>
+map <leader>ze :action ExpandRegion<CR> 
+map <leader>zz :action ExpandAllRegions<CR>
+
+
+
+let g:WhichKeyDesc_CollapseGroup = "<leader>w Window Split"
+let g:WhichKeyDesc_CollapseRegion = "<leader>ws SplitHorizontally"
+let g:WhichKeyDesc_ExpandRegion = "<leader>ze Expand Region"
+let g:WhichKeyDesc_ExpandAll = "<leader>zz Expand All"
+" Window splits
+map <leader>wv <Action>(SplitVertically)
+map <leader>ws <Action>(SplitHorizontally)
+map <leader>wu <Action>(Unsplit)
+map <leader>wm <Action>(MoveEditorToOppositeTabGroup)
+
+
+" Pane navigation
+nnoremap <A-h> <C-w>h
+nnoremap <A-l> <C-w>l
+nnoremap <A-k> <C-w>k
+nnoremap <A-j> <C-w>j
+" Tab navigation
+nnoremap <A-n> :tabnext<CR>
+nnoremap <A-p> :tabprev<CR>
+
+" method jumps
+nnoremap [[ :action MethodUp<CR>
+nnoremap ]] :action MethodDown<CR>
+
+" Easy visual indentation
+vnoremap < <gv
+vnoremap > >gv
+
+" Popup navigation
+"inoremap <C-j> :action EditorDown<CR>
+"inoremap <C-k> :action EditorUp<CR>
+
+" https://github.com/JetBrains/ideavim/blob/master/doc/sethandler.md
+" IdeaVim Handler settings
+
+" set ide to handle the down/up presses
+sethandler <C-J> i:ide 
+sethandler <C-K> i:ide
