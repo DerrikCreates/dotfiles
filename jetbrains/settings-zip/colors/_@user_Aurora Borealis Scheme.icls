@@ -1,0 +1,15 @@
+<scheme name="_@user_Aurora Borealis Scheme" version="142" parent_scheme="Darcula">
+  <option name="FONT_SCALE" value="1.0" />
+  <metaInfo>
+    <property name="created">2024-06-06T22:29:52</property>
+    <property name="ide">Rider</property>
+    <property name="ideVersion">2023.3.4.0.0</property>
+    <property name="modified">2024-06-07T07:47:35</property>
+    <property name="originalScheme">Aurora Borealis Scheme</property>
+    <property name="partialSave">true</property>
+    <property name="pluginId">com.codigrate.aurora-borealis.theme</property>
+  </metaInfo>
+  <option name="LINE_SPACING" value="1.2" />
+  <option name="EDITOR_FONT_SIZE" value="15" />
+  <option name="EDITOR_FONT_NAME" value="JetBrains Mono" />
+</scheme>

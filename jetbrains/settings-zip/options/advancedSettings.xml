@@ -1,0 +1,10 @@
+<application>
+  <component name="AdvancedSettings">
+    <option name="settings">
+      <map>
+        <entry key="debugger.inlay.run.to.cursor" value="false" />
+        <entry key="floating.codeToolbar.hide" value="true" />
+      </map>
+    </option>
+  </component>
+</application>

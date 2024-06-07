@@ -1,0 +1,15 @@
+<scheme name="_@user_VSCode Dark Brighter" version="142" parent_scheme="Darcula">
+  <option name="FONT_SCALE" value="1.0" />
+  <metaInfo>
+    <property name="created">2023-09-26T05:11:17</property>
+    <property name="ide">Rider</property>
+    <property name="ideVersion">2023.2.1.0.0</property>
+    <property name="modified">2024-06-07T07:47:35</property>
+    <property name="originalScheme">VSCode Dark Brighter</property>
+    <property name="partialSave">true</property>
+    <property name="pluginId">com.github.dinbtechit.vscodetheme</property>
+  </metaInfo>
+  <option name="LINE_SPACING" value="1.2" />
+  <option name="EDITOR_FONT_SIZE" value="18" />
+  <option name="EDITOR_FONT_NAME" value="Inconsolata" />
+</scheme>

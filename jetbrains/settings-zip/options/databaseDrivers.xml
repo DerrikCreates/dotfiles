@@ -1,0 +1,10 @@
+<application>
+  <component name="LocalDatabaseDriverManager" version="201">
+    <driver id="postgresql">
+      <artifact id="PostgreSQL" name="PostgreSQL" use="true" version="42.6.0" />
+    </driver>
+    <driver id="sqlite.xerial">
+      <artifact id="Xerial SQLiteJDBC" name="Xerial SQLiteJDBC" use="true" version="3.45.1" />
+    </driver>
+  </component>
+</application>

@@ -1,0 +1,24 @@
+<scheme name="_@user_Deep Ocean" version="142" parent_scheme="Darcula">
+  <option name="FONT_SCALE" value="1.0" />
+  <metaInfo>
+    <property name="created">2024-06-07T01:21:34</property>
+    <property name="ide">Rider</property>
+    <property name="ideVersion">2023.3.4.0.0</property>
+    <property name="modified">2024-06-07T07:47:35</property>
+    <property name="originalScheme">Deep Ocean</property>
+    <property name="partialSave">true</property>
+    <property name="pluginId">com.villains.intelij.plugin.newoceantheme</property>
+  </metaInfo>
+  <option name="LINE_SPACING" value="1.2" />
+  <option name="EDITOR_FONT_SIZE" value="16" />
+  <option name="EDITOR_FONT_NAME" value="JetBrains Mono" />
+  <console-font>
+    <option name="EDITOR_FONT_NAME" value="Inconsolata" />
+    <option name="EDITOR_FONT_SIZE" value="16" />
+  </console-font>
+  <console-font>
+    <option name="EDITOR_FONT_NAME" value="Lucida Console" />
+    <option name="EDITOR_FONT_SIZE" value="16" />
+  </console-font>
+  <option name="CONSOLE_LINE_SPACING" value="0.86" />
+</scheme>

@@ -1,0 +1,8 @@
+<application>
+  <component name="LafManager">
+    <laf themeId="VisualStudioNight" />
+    <lafs-to-previous-schemes>
+      <laf-to-scheme laf="dinbtechit-2179230b863b9b1d9f1eeb27ca4a3a70" scheme="_@user_VSCode Dark" />
+    </lafs-to-previous-schemes>
+  </component>
+</application>

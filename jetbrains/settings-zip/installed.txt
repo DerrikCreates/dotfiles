@@ -1,0 +1,15 @@
+com.intellij.javafx
+com.villains.intelij.plugin.newoceantheme
+com.thvardhan.gradianto
+com.codigrate.aurora-borealis.theme
+avalonia-rider
+com.jetbrains.rider.android
+re.bizar.celestial
+me.seclerp.rider.plugins.monogame
+com.intellij.rider.godot
+AceJump
+IdeaVIM
+org.jetbrains.IdeaVim-EasyMotion
+com.joshestein.ideavim-quickscope
+eu.theblob42.idea.whichkey
+com.github.dinbtechit.vscodetheme

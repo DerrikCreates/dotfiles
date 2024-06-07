@@ -1,0 +1,75 @@
+<keymap version="1" name="DerrikKeymap" parent="Visual Studio 2022">
+  <action id="ActivateBookmarksToolWindow">
+    <keyboard-shortcut first-keystroke="alt 2" />
+  </action>
+  <action id="CallHierarchy" />
+  <action id="CodeCompletion">
+    <keyboard-shortcut first-keystroke="ctrl space" />
+    <keyboard-shortcut first-keystroke="alt right" />
+  </action>
+  <action id="CommentByLineComment">
+    <keyboard-shortcut first-keystroke="ctrl alt slash" />
+    <keyboard-shortcut first-keystroke="ctrl alt divide" />
+  </action>
+  <action id="Console.TableResult.DeleteRows">
+    <keyboard-shortcut first-keystroke="shift ctrl l" />
+  </action>
+  <action id="Debugger.MarkObject" />
+  <action id="EditorDeleteLine">
+    <keyboard-shortcut first-keystroke="shift ctrl l" />
+  </action>
+  <action id="EditorDown">
+    <keyboard-shortcut first-keystroke="ctrl j" />
+  </action>
+  <action id="EditorLeft">
+    <keyboard-shortcut first-keystroke="ctrl h" />
+  </action>
+  <action id="EditorRight">
+    <keyboard-shortcut first-keystroke="ctrl l" />
+  </action>
+  <action id="EditorUp">
+    <keyboard-shortcut first-keystroke="ctrl k" />
+  </action>
+  <action id="Generate.Missing.Members.ES6" />
+  <action id="Generate.Missing.Members.TypeScript" />
+  <action id="GotoNextBookmark" />
+  <action id="GotoPreviousBookmark" />
+  <action id="ImplementMethods" />
+  <action id="InsertLiveTemplate">
+    <keyboard-shortcut first-keystroke="ctrl e" second-keystroke="l" />
+    <keyboard-shortcut first-keystroke="ctrl e" second-keystroke="ctrl l" />
+  </action>
+  <action id="IntentionActionAsAction_com.jetbrains.rider.interactive.csi.actions.SendSelectionToCSharpInteractiveIntentionAction">
+    <keyboard-shortcut first-keystroke="shift ctrl alt i" />
+  </action>
+  <action id="OpenInRightSplit" />
+  <action id="QuickJavaDoc">
+    <keyboard-shortcut first-keystroke="shift ctrl f1" />
+  </action>
+  <action id="ReformatCode">
+    <keyboard-shortcut first-keystroke="ctrl alt enter" />
+  </action>
+  <action id="Replace" />
+  <action id="RiderCodeLens.ShowMore" />
+  <action id="RiderUnitTestRunSolutionTwAction" />
+  <action id="RunInspection" />
+  <action id="SurroundWithLiveTemplate">
+    <keyboard-shortcut first-keystroke="ctrl e" second-keystroke="u" />
+    <keyboard-shortcut first-keystroke="ctrl e" second-keystroke="ctrl u" />
+  </action>
+  <action id="SwitchHeaderSource">
+    <keyboard-shortcut first-keystroke="alt o" />
+  </action>
+  <action id="Terminal.ClearBuffer" />
+  <action id="ToggleBookmark" />
+  <action id="Vcs.Log.ShowTooltip">
+    <keyboard-shortcut first-keystroke="shift ctrl f1" />
+  </action>
+  <action id="Vcs.ReformatCommitMessage">
+    <keyboard-shortcut first-keystroke="ctrl alt enter" />
+  </action>
+  <action id="Vcs.ShowMessageHistory" />
+  <action id="com.jetbrains.rider.interactive.csi.StartCSharpInteractive">
+    <keyboard-shortcut first-keystroke="shift ctrl i" />
+  </action>
+</keymap>

@@ -1,0 +1,262 @@
+" useful read https://web.archive.org/web/20240606025957/https://www.cyberwizard.io/posts/the-ultimate-ideavim-setup/
+set verbose=15
+
+let mapleader = " "
+
+set scrolloff=10
+set ignorecase
+set smartcase
+set incsearch
+set hlsearch
+
+set relativenumber
+set number
+set which-key
+set highlightedyank
+set showmode
+
+
+" use system clipboard
+set clipboard+=unnamed
+set visualbell
+set surround
+set nerdtree
+
+set easymotion
+set notimeout
+
+
+set sneak
+set quickscope
+
+filetype plugin indent on
+
+let g:qs_highlight_on_keys = ['f', 'F', 't', 'T','s','S']
+
+
+
+""Which key
+""===================
+let g:WhichKey_FontSize=22
+let g:WhichKey_KeyStyle="bold"
+let g:WhichKey_KeyColor="#FF0D51"
+let g:WhichKey_DefaultDelay=0
+
+
+let g:qs_highlight_on_keys = ['f', 'F', 't', 'T', 's']
+let g:WhichKeyDesc_Jump = "<leader>j Jump to text"
+
+
+" Folding
+let g:WhichKeyDesc_CollapseGroup = "<leader>z Collapse controls"
+let g:WhichKeyDesc_CollapseRegion = "<leader>zc Collapse Region"
+let g:WhichKeyDesc_ExpandRegion = "<leader>ze Expand Region"
+let g:WhichKeyDesc_ExpandAll = "<leader>zz Expand All"
+
+let g:WhichKeyDesc_ExpandAll = "<leader>n Next Tab"
+let g:WhichKeyDesc_ExpandAll = "<leader>p Previous Tab"
+
+" Window
+let g:WhichKeyDesc_CollapseGroup = "<leader>w Window Split"
+let g:WhichKeyDesc_CollapseRegion = "<leader>ws Split Horizontally"
+
+let g:WhichKeyDesc_WindowToolGroup = "<leader>wt Window Tools"
+let g:WhichKeyDesc_RunToolWindow = "<leader>wtr Run Window"
+let g:WhichKeyDesc_RunToolWindow = "<leader>wtd Debug Window"
+let g:WhichKeyDesc_HideToolWindow = "<leader>wh Hide Active Tool Window"
+let g:WhichKeyDesc_HideAllToolWindows = "<leader>wa Hide All Tool Windows"
+
+"Surround
+let g:WhichKeyDesc_Surround = "<leader>p Surround"
+let g:WhichKeyDesc_DeleteSurround = "<leader>pd Delete Surrounding"
+let g:WhichKeyDesc_ChangeSurround = "<leader>pc Change Surrounding"
+
+let g:WhichKeyDesc_CloseContent = "<leader>q Close file" 
+
+"Refactoring
+let g:WhichKeyDesc_Refactoring = "<leader>r Refactoring"
+let g:WhichKeyDesc_RenameElement = "<leader>rn Rename"
+let g:WhichKeyDesc_QuickList = "<leader>rr Quick List"
+let g:WhichKeyDesc_ExtractMethod = "<leader>rm Extract Method"
+
+let g:WhichKeyDesc_OpenFileSystem = "<leader>x File System" 
+let g:WhichKeyDesc_NERDTreeToggle = "<leader>xt Toggle"
+
+" Search
+let g:WhichKeyDesc_SearchGroup = "<leader>s Search" 
+let g:WhichKeyDesc_InFileSearch = "<leader>ss In File Search" 
+let g:WhichKeyDesc_SearchEverywhere = "<leader>se search everywhere"
+
+
+" Breakpoints
+let g:WhichKeyDesc_DebugGroup = "<leader>d Debug"
+let g:WhichKeyDesc_ToggleBreakPoint = "<leader>db Toggle Breakpoint"
+let g:WhichKeyDesc_StepOver = "<leader>do Step over"
+let g:WhichKeyDesc_StepInto = "<leader>di Step into"
+let g:WhichKeyDesc_StepOut = "<leader>dO Step Out"
+let g:WhichKeyDesc_Resume = "<leader>dr Resume"
+
+" File Nav
+let g:WhichKeyDesc_FileNavGroup = "<leader>f File Navigation"
+let g:WhichKeyDesc_GoToFile = "<leader>ff Go To File"
+let g:WhichKeyDesc_RecentFiles = "<leader>fr Recent Files"
+let g:WhichKeyDesc_FindInPath = "<leader>fc Find In Path"
+let g:WhichKeyDesc_RecentFiles = "<leader><leader> Recent Files"
+let g:WhichKeyDesc_RecentLocations = "<leader>fl Recent Locations"
+let g:WhichKeyDesc_NewScratchFile = "<leader>fs New Scratch File"
+
+" Go to code
+let g:WhichKeyDesc_GoToCodeGroup = "<leader>g Go to code"
+let g:WhichKeyDesc_GoToDeclaration = "<leader>gd Go to declaration"
+let g:WhichKeyDesc_GoToTypeDeclaration = "<leader>gy Go to Type Declaration"
+let g:WhichKeyDesc_GoToImplementation = "<leader>gi Go to implementation" 
+let g:WhichKeyDesc_ShowUsages = "<leader>gu Show usages" 
+
+" Bookmarks
+let g:WhichKeyDesc_BookmarksGroup = "<leader>b Bookmarks" 
+let g:WhichKeyDesc_ShowBookmarks = "<leader>bs Show Bookmarks" 
+let g:WhichKeyDesc_GotoNextBookmark = "<leader>bn Goto next bookmark" 
+let g:WhichKeyDesc_GotoPreviouseBookmark = "<leader>bp Goto previous bookmark" 
+
+
+" Errors
+let g:WhichKeyDesc_ErrorGroup = "<leader>e Error" 
+let g:WhichKeyDesc_GoToNextError = "<leader>en Goto next error" 
+let g:WhichKeyDesc_GoToPrevError = "<leader>ep Goto prev error" 
+
+" Run
+let g:WhichKeyDesc_RunGroup = "<leader>R Run" 
+
+let g:WhichKeyDesc_ChooseConfig = "<leader>Rc Choose Run" 
+let g:WhichKeyDesc_Run = "<leader>Rr Run" 
+let g:WhichKeyDesc_Debug = "<leader>Rd Debug" 
+
+"Regions 
+let g:WhichKeyDesc_RegionGroup = "<leader>z Region" 
+let g:WhichKeyDesc_ExpandRegion = "<leader>ze Expand Region"
+let g:WhichKeyDesc_ExpandAll = "<leader>zz Expand All"
+let g:WhichKeyDesc_CollapseRegion = "<leader>zc Collapse Region"
+"" Maps
+""========================
+map s <Plug>Sneak_s
+" Jump to text
+map f <Plug>(easymotion-s)
+map F <Plug>(easymotion-s)
+
+" tab navigation
+nnoremap <A-n> :tabnext<CR>
+nnoremap <A-p> :tabprev<CR>
+map <leader>zc :action CollapseRegion<CR>
+map <leader>ze :action ExpandRegion<CR> 
+map <leader>zz :action ExpandAllRegions<CR>
+
+" Window 
+map <leader>wv <Action>(SplitVertically)
+map <leader>ws <Action>(SplitHorizontally)
+map <leader>wu <Action>(Unsplit)
+map <leader>wm <Action>(MoveEditorToOppositeTabGroup)
+
+map <leader>wh <Action>(HideActiveWindow)
+map <leader>wa <Action>(HideAllWindows)
+
+map <leader>wtr <Action>(ActivateRunToolWindow)
+map <leader>wtd <Action>(ActivateDebugToolWindow)
+
+
+" Surroundings
+nmap <leader>pd ds
+nmap <leader>pc cs
+
+" Pane navigation
+nnoremap <A-h> <C-w>h
+nnoremap <A-l> <C-w>l
+
+nnoremap <A-k> <C-w>k
+nnoremap <A-j> <C-w>j
+
+" Tab navigation
+nnoremap <A-n> :tabnext<CR>
+nnoremap <A-p> :tabprev<CR>
+
+" insert mode horizontal movement
+inoremap <A-h> <Left>
+inoremap <A-l> <Right>
+sethandler <A-h> a:vim 
+sethandler <A-l> a:vim
+
+" File navigation
+map <leader>ff <action>(GotoFile)
+map <leader>fr <action>(RecentFiles)
+map <leader>fc <action>(FindInPath)
+map <leader>fl <action>(RecentLocations)
+map <leader>fs <action>(NewScratchFile)
+
+" method jumps
+nnoremap [[ :action MethodUp<CR>
+nnoremap ]] :action MethodDown<CR>
+
+" Easy visual indentation
+vnoremap < <gv
+vnoremap > >gv
+
+"close active Tab
+nmap <leader>q <action>(CloseContent)
+
+" Refactoring
+map <leader>rn <Action>(RenameElement)
+map <leader>rr <Action>(Refactorings.QuickListPopupAction)
+map <leader>rm <Action>(ExtractMethod)
+
+" Debugging
+:nmap <leader>db <Action>(ToggleLineBreakpoint)
+:nmap <leader>do <Action>(StepOver)
+:nmap <leader>di <Action>(StepInto)
+:nmap <leader>dO <Action(StepOut)
+:nmap <leader>dr <Action>(Resume)
+
+" Open NERDTree (use q to exit)
+nnoremap <leader>xt :NERDTreeToggle<CR>
+nnoremap <leader>xf :NERDTreeFocus<CR>
+
+" Run
+:nmap <leader>Rc <Action>(ChooseRunConfiguration)
+:nmap <leader>Rr <Action>(Run)
+:nmap <leader>Rd <Action>(Debug)
+
+" Interactive
+sethandler <C-A-S-I> a:ide " send to c# interactive
+
+" Go to code
+nmap <leader>gd <Action>(GotoDeclaration)
+nmap <leader>gy <Action>(GotoTypeDeclaration)
+nmap <leader>gi <Action>(GotoImplementation)
+nmap <leader>gu <Action>(ShowUsages)
+
+" Comment
+:map <leader>cl <Action>(CommentByLineComment)
+:map <leader>cb <Action>(CommentByBlockComment)
+
+
+" Bookmarks"
+nmap <leader>bb <Action>(ToggleBookmark)
+nmap <leader>bs <Action>(ShowBookmarks)
+nmap <leader>bn <Action>(GotoNextBookmark)
+nmap <leader>bp <Action>(GotoPreviousBookmark)
+
+" Errors
+map <leader>en <Action>(ReSharperGotoNextErrorInSolution)
+map <leader>ep <Action>(ReSharperGotoPrevErrorInSolution)
+
+" Misc Search 
+map <leader>ss <Action>(Find)
+map <leader>se <action>(SearchEverywhere)
+
+
+" https://github.com/JetBrains/ideavim/blob/master/doc/sethandler.md
+" IdeaVim Handler settings
+
+" set ide to handle the down/up presses
+sethandler <C-J> a:ide 
+sethandler <C-K> a:ide
+sethandler <C-H> a:ide 
+sethandler <C-L> a:ide
