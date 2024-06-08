@@ -27,7 +27,7 @@ set notimeout
 
 
 set sneak
-set quickscope
+"set quickscope
 
 filetype plugin indent on
 
