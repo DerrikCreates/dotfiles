@@ -65,7 +65,8 @@ let g:WhichKeyDesc_RunToolWindow = "<leader>wtr Run Window"
 let g:WhichKeyDesc_RunToolWindow = "<leader>wtd Debug Window"
 let g:WhichKeyDesc_HideToolWindow = "<leader>wh Hide Active Tool Window"
 let g:WhichKeyDesc_HideAllToolWindows = "<leader>wa Hide All Tool Windows"
-
+"Comment
+let g:WhichKeyDesc_CommentGroup = "<leader>c Comments"
 "Surround
 let g:WhichKeyDesc_Surround = "<leader>p Surround"
 let g:WhichKeyDesc_DeleteSurround = "<leader>pd Delete Surrounding"
