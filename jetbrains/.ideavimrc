@@ -3,7 +3,7 @@ set verbose=15
 
 let mapleader = " "
 
-set scrolloff=10
+set scrolloff=4
 set ignorecase
 set smartcase
 set incsearch
@@ -59,12 +59,13 @@ let g:WhichKeyDesc_ExpandAll = "<leader>p Previous Tab"
 " Window
 let g:WhichKeyDesc_CollapseGroup = "<leader>w Window Split"
 let g:WhichKeyDesc_CollapseRegion = "<leader>ws Split Horizontally"
+let g:WhichKeyDesc_HideToolWindow = "<leader>wh Hide Active Tool Window"
+let g:WhichKeyDesc_HideAllToolWindows = "<leader>wa Hide All Tool Windows"
 
 let g:WhichKeyDesc_WindowToolGroup = "<leader>wt Window Tools"
 let g:WhichKeyDesc_RunToolWindow = "<leader>wtr Run Window"
 let g:WhichKeyDesc_RunToolWindow = "<leader>wtd Debug Window"
-let g:WhichKeyDesc_HideToolWindow = "<leader>wh Hide Active Tool Window"
-let g:WhichKeyDesc_HideAllToolWindows = "<leader>wa Hide All Tool Windows"
+let g:WhichKeyDesc_BuildToolWindow = "<leader>wtb Build Window"
 "Comment
 let g:WhichKeyDesc_CommentGroup = "<leader>c Comments"
 "Surround
@@ -131,6 +132,7 @@ let g:WhichKeyDesc_RunGroup = "<leader>R Run"
 let g:WhichKeyDesc_ChooseConfig = "<leader>Rc Choose Run" 
 let g:WhichKeyDesc_Run = "<leader>Rr Run" 
 let g:WhichKeyDesc_Debug = "<leader>Rd Debug" 
+let g:WhichKeyDesc_Stop = "<leader>Rs Stop" 
 
 "Regions 
 let g:WhichKeyDesc_RegionGroup = "<leader>z Region" 
@@ -162,6 +164,7 @@ map <leader>wa <Action>(HideAllWindows)
 
 map <leader>wtr <Action>(ActivateRunToolWindow)
 map <leader>wtd <Action>(ActivateDebugToolWindow)
+map <leader>wtb <Action>(ActivateBuildToolWindow)
 
 
 " Surroundings
@@ -223,7 +226,7 @@ nnoremap <leader>xf :NERDTreeFocus<CR>
 :nmap <leader>Rc <Action>(ChooseRunConfiguration)
 :nmap <leader>Rr <Action>(Run)
 :nmap <leader>Rd <Action>(Debug)
-
+:nmap <leader>Rs <Action>(Stop)
 " Interactive
 sethandler <C-A-S-I> a:ide " send to c# interactive
 
