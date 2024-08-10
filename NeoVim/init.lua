@@ -1,9 +1,9 @@
 
 
-	vim.g.mapleader = ' '
-	vim.g.maplocalleader = ' '
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
 
-	vim.opt.clipboard = 'unnamedplus'
+vim.opt.clipboard = 'unnamedplus'
 vim.opt.updatetime = 250
 vim.opt.number = true
 vim.opt.cursorline = true
@@ -64,13 +64,28 @@ require('lazy').setup({
     'nvim-telescope/telescope.nvim', tag = '0.1.8',
 	
     dependencies = { 'nvim-lua/plenary.nvim' }
-    }
+},
+{
+"nvim-treesitter/nvim-treesitter", build = ":TSUpdate",
+config = function()
+local configs = require("nvim-treesitter.configs")
+
+configs.setup({	
+	ensure_installed = {"lua","vim","javascript","html","c_sharp"},
+	sync_install = false,
+	highlight = {enable = true},
+	indent = {enable = true}
+
+})
+
+end
+}
 
 })
 
 require("cyberdream").setup({
 
-	transparent = false,
+	transparent = true,
 	hide_fillchars = false,
 	borderless_telescope = true,
 	terminal_colors = true,
@@ -88,3 +103,16 @@ require("core.whichkey")
 
 local buildint = require("telescope.builtin")
 
+
+local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
+parser_config.verse = {
+  install_info = {
+    url = "P:/2_projects/2_software/tree-sitter-verse", -- local path or git repo
+    files = {"src/parser.c"}, -- note that some parsers also require src/scanner.c or src/scanner.cc
+    -- optional entries:
+    --branch = "main", -- default branch in case of git repo if different from master
+    --generate_requires_npm = false, -- if stand-alone parser without npm dependencies
+    requires_generate_from_grammar = true, -- if folder contains pre-generated src/parser.c
+  },
+  filetype = "verse", -- if filetype does not match the parser name
+}
