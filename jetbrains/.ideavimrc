@@ -141,7 +141,7 @@ let g:WhichKeyDesc_ExpandAll = "<leader>zz Expand All"
 let g:WhichKeyDesc_CollapseRegion = "<leader>zc Collapse Region"
 "" Maps
 ""========================
-map s <Plug>Sneak_s
+"map s <Plug>Sneak_s
 " Jump to text
 map f <Plug>(easymotion-s)
 map F <Plug>(easymotion-s)
