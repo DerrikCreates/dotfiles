@@ -1,11 +1,25 @@
 return {
 	"seblj/roslyn.nvim",
-	event = { "BufReadPre", "BufNewFile" },
+	--event = { "BufReadPre", "BufNewFile" },
+	ft = "cs",
 
 	dependencies = { "roslyn.nvim" },
 
 	opts = {
-		config = {
+		config = {},
+		broad_search = true,
+	},
+
+	config = function()
+		require("roslyn").setup({
+			-- how to on_attach for roslyn lsp
+			-- https://github.com/seblj/roslyn.nvim/issues/8#issuecomment-2198336099
+			config = {
+				on_attach = function(client)
+					require("lsp-overloads").setup(client, {})
+				end,
+			},
+
 			settings = {
 				["csharp|inlay_hints"] = {
 					csharp_enable_inlay_hints_for_implicit_object_creation = true,
@@ -24,20 +38,6 @@ return {
 				["csharp|code_lens"] = {
 					dotnet_enable_references_code_lens = true,
 				},
-			},
-		},
-		broad_search = true,
-	},
-
-	config = function()
-		require("roslyn").setup({
-			-- how to on_attach for roslyn lsp
-			-- https://github.com/seblj/roslyn.nvim/issues/8#issuecomment-2198336099
-			
-			config = {
-				on_attach = function(client)
-					require("lsp-overloads").setup(client, {})
-				end,
 			},
 		})
 	end,

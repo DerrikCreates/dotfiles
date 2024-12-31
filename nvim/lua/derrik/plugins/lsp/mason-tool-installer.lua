@@ -10,7 +10,7 @@ return {
 				"omnisharp",
 				"html-lsp",
 				"lua-language-server",
-				"csharpier"
+				"csharpier",
 			},
 		})
 	end,
