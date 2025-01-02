@@ -1,12 +1,11 @@
 return {
 	"seblj/roslyn.nvim",
-	--event = { "BufReadPre", "BufNewFile" },
+	event = { "BufReadPre", "BufNewFile" },
 	ft = "cs",
 
 	dependencies = { "roslyn.nvim" },
 
 	opts = {
-		lock_target = true,
 		config = {},
 		broad_search = true,
 	},
@@ -15,7 +14,7 @@ return {
 		require("roslyn").setup({
 			-- how to on_attach for roslyn lsp
 			-- https://github.com/seblj/roslyn.nvim/issues/8#issuecomment-2198336099
-			lock_target = true,
+			lock_target = false,
 			config = {
 
 				settings = {
@@ -46,7 +45,6 @@ return {
 				on_attach = function(client)
 					require("lsp-overloads").setup(client, {})
 				end,
-				broad_search = true,
 			},
 		})
 

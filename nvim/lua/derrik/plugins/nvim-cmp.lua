@@ -13,18 +13,29 @@ return {
 		"rafamadriz/friendly-snippets",
 	},
 
-		config = function()
+	config = function()
 		local cmp = require("cmp")
-		local luasnip = require("luasnip")
+		local ls = require("luasnip")
 
 		require("luasnip.loaders.from_vscode").lazy_load()
+
+		for test=1,10 do
+			
+		end
+		vim.keymap.set({ "i", "s" }, "<F2>", function()
+			ls.jump(1)
+		end, { silent = true,desc = "snippen next",remap = false })
+
+		vim.keymap.set({ "i", "s" }, "<F1>", function()
+			ls.jump(-1)
+		end, { silent = true, desc = "snippet prev", remap = false })
 
 		cmp.setup({
 
 			compleation = { completeopt = "menu,menuone,preview,noselect" },
 			snippet = {
 				expand = function()
-					luasnip.lsp_expand(args.body)
+					ls.lsp_expand(args.body)
 				end,
 			},
 			mapping = cmp.mapping.preset.insert({
