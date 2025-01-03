@@ -6,7 +6,7 @@ return {
 	dependencies = { "roslyn.nvim" },
 
 	opts = {
-		config = {},
+
 		broad_search = true,
 	},
 
@@ -16,13 +16,10 @@ return {
 			-- https://github.com/seblj/roslyn.nvim/issues/8#issuecomment-2198336099
 			lock_target = false,
 			config = {
-
+				on_attach = function(client)
+					require("lsp-overloads").setup(client, {})
+				end,
 				settings = {
-
-					["csharp|background_analysis"] = {
-
-						dotnet_compiler_diagnostics_scope = "fullSolution",
-					},
 					["csharp|inlay_hints"] = {
 						csharp_enable_inlay_hints_for_implicit_object_creation = true,
 						csharp_enable_inlay_hints_for_implicit_variable_types = true,
@@ -41,11 +38,8 @@ return {
 						dotnet_enable_references_code_lens = true,
 					},
 				},
-
-				on_attach = function(client)
-					require("lsp-overloads").setup(client, {})
-				end,
 			},
+			vim.lsp.inlay_hint.enable(true),
 		})
 
 		vim.keymap.set("n", "<leader>p", function()

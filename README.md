@@ -13,3 +13,6 @@
 
 # Issues
 - [roslyn decompile not working inside of already decompiled files](https://github.com/seblj/roslyn.nvim/issues/116) A workaround for me was to run `Roslyn target` every time you open it, dont let it auto target
+- there is an issue with cycling though documentation / auto complete. Change the hotkeys to something better
+- make pressing enter when hovered on an auto complete select and enter that snippet.
+- figure out how to auto complete overrides

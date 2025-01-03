@@ -1,4 +1,6 @@
 --general vim config settings
+-- todo test
+-- TODO asdf
 vim.g.mapleader = " "
 vim.api.nvim_set_option("clipboard", "unnamed")
 
