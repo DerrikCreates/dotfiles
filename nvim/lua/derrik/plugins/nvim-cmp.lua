@@ -11,9 +11,11 @@ return {
 		"L3MON4D3/LuaSnip",
 		"saadparwaiz1/cmp_luasnip",
 		"rafamadriz/friendly-snippets",
+		"onsails/lspkind.nvim",
 	},
 
 	config = function()
+		local lspkind = require("lspkind")
 		local cmp = require("cmp")
 		local ls = require("luasnip")
 
@@ -76,6 +78,31 @@ return {
 				--     winhighlight = "Normal:CmpDocumentationNormal,FloatBorder:Pmenu",
 				--     -- winhighlight = "FloatBorder:CmpBorder",
 				-- }
+			},
+			formatting = {
+				format = lspkind.cmp_format({
+					mode = "symbol", -- show only symbol annotations
+					menu = {
+						nvim_lsp = "[LSP]",
+						path = "[Path]",
+						luasnip = "[LuaSnip]",
+						nvim_lua = "[Lua]",
+						buffer = "[Buffer]",
+						-- latex_symbols = "[Latex]",
+					},
+					maxwidth = 50, -- prevent the popup from showing more than provided charecters
+					-- can also be a function to dynamically calculate max width, such as
+					-- maxwidth = function() return math.floor(0.45 * vim.o.columns) end,
+					ellipsis_char = "...", -- when popup menu exceeds maxwidth, the truncated part would show ellipsis_char instead
+					-- (only if maxwidth is defined first)
+					show_labelDetails = true, -- show labelDetails in menu. Disabled by default
+
+					-- the function below will be called before any actual modifications from lspkind
+					-- so that you can provide more control on popup customization
+					before = function(entry, vim_item)
+						return vim_item
+					end,
+				}),
 			},
 		})
 	end,
