@@ -11,6 +11,7 @@ return {
 				"html-lsp",
 				"lua-language-server",
 				"csharpier",
+				"prettier",
 			},
 		})
 	end,
