@@ -23,8 +23,12 @@ return {
 		local wk = require("which-key")
 		wk.add({
 
+			-- Which key groups
 			{ "<leader>f", group = "File", icon = { icon = "", color = "orange" } },
 			{ "<leader>b", group = "Buffer", icon = { icon = "", color = "blue" } },
+			{ "<leader>l", group = "LSP", icon = { icon = "󰅩", color = "red" } },
+			{ "<leader>ls", group = "Symbols", icon = { icon = "", color = "purple" } },
+			{ "<leader>lc", group = "Calls", icon = { icon = "", color = "green" } },
 		})
 	end,
 }

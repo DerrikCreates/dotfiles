@@ -8,7 +8,7 @@ return {
 		{ "antosha417/nvim-lsp-file-operations", config = true },
 		{ "folke/neodev.nvim", opts = {} },
 		"williamboman/mason.nvim",
-		"williamboman/mason-lspconfig.nvim"
+		"williamboman/mason-lspconfig.nvim",
 	},
 	config = function()
 		local lspconfig = require("lspconfig")
@@ -56,5 +56,9 @@ return {
 		opts.desc = "Restart LSP"
 		keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts)
 
+		opts.desc = "Toggle Inlay Hints"
+		keymap.set("n", "<leader>lI", function()
+			vim.lsp.inlay_hint.enable(0, not lsp.inlay_hint.is_enabled())
+		end, opts)
 	end,
 }
