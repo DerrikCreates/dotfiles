@@ -1,14 +1,14 @@
 return {
 	"nvim-telescope/telescope.nvim",
 	tag = "0.1.8",
-	dependencies = { "nvim-lua/plenary.nvim" },
+	dependencies = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope-fzf-native.nvim" },
 
 	config = function()
 		local tele = require("telescope")
 		local actions = require("telescope.actions")
 
 		tele.setup({
-
+			extensions = { fzf = {} },
 			defaults = {
 				layout_strategy = "vertical",
 				path_display = { "smart" },
@@ -25,7 +25,12 @@ return {
 			},
 		})
 
+		require("telescope").load_extension("fzf")
+
 		local builtin = require("telescope.builtin")
+
+		--		vim.keymap.set("n", "<leader>sm", { desc = "Show Marks" })
+
 		vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Telescope Find Files" })
 		vim.keymap.set("n", "<leader>fs", builtin.live_grep, { desc = "Telescope Find String (grep)" })
 
@@ -38,7 +43,15 @@ return {
 			{ desc = "Dynamic Workspace Symbols" }
 		)
 
-		-- These are not supported by the roslyn lsp yet?
+		vim.keymap.set("n", "<leader>en", function()
+			require("telescope.builtin").find_files({ cwd = vim.fn.stdpath("config") })
+		end, { desc = "Edit neovim config" })
+
+		vim.keymap.set("n", "<leader>ep", function()
+			require("telescope.builtin").find_files({ cwd = vim.fs.joinpath(vim.fn.stdpath("data"), "lazy") })
+		end, { desc = "Search Plugins" })
+
+		--These are not supported by the roslyn lsp yet?
 		vim.keymap.set("n", "<leader>lci", builtin.lsp_incoming_calls, { desc = "Incoming Calls" })
 		vim.keymap.set("n", "<leader>lco", builtin.lsp_outgoing_calls, { desc = "Outgoing Calls" })
 
@@ -50,10 +63,10 @@ return {
 
 		vim.keymap.set("n", "<leader>lt", builtin.lsp_type_definitions, { desc = "Type Definitions" })
 
-		vim.keymap.set("n", "<leader>ts", builtin.treesitter, { desc = "Treesitter Picker" })
+		vim.keymap.set("n", "<leader>sT", builtin.treesitter, { desc = "Treesitter Picker" })
 
-		vim.keymap.set("n", "<leader>bs", builtin.buffers, { desc = "List Buffers" })
+		vim.keymap.set("n", "<leader>sb", builtin.buffers, { desc = "List Buffers" })
 
-		vim.keymap.set("n", "<leader>qf", builtin.quickfix, { desc = "Quick Fix" })
+		vim.keymap.set("n", "<leader>sq", builtin.quickfix, { desc = "Show Quick Fix" })
 	end,
 }

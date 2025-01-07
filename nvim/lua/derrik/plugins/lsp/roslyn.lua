@@ -3,7 +3,7 @@ return {
 	event = { "BufReadPre", "BufNewFile" },
 	ft = "cs",
 
-	dependencies = { "roslyn.nvim" },
+	dependencies = { "roslyn.nvim", "blink.cmp" },
 
 	opts = {
 
@@ -11,6 +11,7 @@ return {
 	},
 
 	config = function()
+		--local capabilities = require("blink.cmp").get_lsp().capabilities()
 		require("roslyn").setup({
 			-- how to on_attach for roslyn lsp
 			-- https://github.com/seblj/roslyn.nvim/issues/8#issuecomment-2198336099
@@ -20,6 +21,8 @@ return {
 					require("lsp-overloads").setup(client, {})
 				end,
 				settings = {
+					--capabilities = capabilities,
+
 					["csharp|inlay_hints"] = {
 						csharp_enable_inlay_hints_for_implicit_object_creation = true,
 						csharp_enable_inlay_hints_for_implicit_variable_types = true,

@@ -42,6 +42,17 @@ return {
 				"xml",
 				"yaml",
 			},
+
+			incremental_selection = {
+				enable = true,
+				keymaps = {
+
+					init_selection = "<cr>",
+					node_incremental = ";",
+					scope_incremental = "false",
+					node_decremental = ",",
+				},
+			},
 		})
 	end,
 

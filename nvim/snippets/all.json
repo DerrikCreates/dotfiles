@@ -1,0 +1,12 @@
+{
+  "XML Documentation": {
+    "prefix": "///",
+    "body": [
+      "/// <summary>",
+      "/// ${1:Summary description}",
+      "/// </summary>",
+      "/// <returns>${2:Return description}</returns>"
+    ],
+    "description": "Create XML documentation for methods and properties"
+  }
+}

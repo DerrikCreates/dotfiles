@@ -4,14 +4,14 @@ return {
 	event = { "BufReadPre", "BufNewFile" },
 
 	dependencies = {
-		"hrsh7th/cmp-nvim-lsp",
-		{ "antosha417/nvim-lsp-file-operations", config = true },
-		{ "folke/neodev.nvim", opts = {} },
 		"williamboman/mason.nvim",
 		"williamboman/mason-lspconfig.nvim",
+		"folke/lazydev.nvim",
 	},
 	config = function()
 		local lspconfig = require("lspconfig")
+
+		lspconfig.lua_ls.setup({})
 
 		local keymap = vim.keymap
 
@@ -39,19 +39,11 @@ return {
 		keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
 
 		opts.desc = "Show buffer diagnostics"
-		keymap.set("n", "<leader>D", "<cmd>Telescope diagnostics bufnr=0<CR>", opts)
+		keymap.set("n", "<leader>sd", "<cmd>Telescope diagnostics bufnr=0<CR>", opts)
 
-		opts.desc = "Show line diagnostics"
-		keymap.set("n", "<leader>d", vim.diagnostic.open_float, opts)
-
-		opts.desc = "Go to previous diagnostic"
-		keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
-
-		opts.desc = "Go to next diagnostic"
-		keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
 
 		opts.desc = "Show documentation under cursor"
-		keymap.set("n", "K", vim.lsp.buf.hover, opts)
+		keymap.set("n", "<leader>sh", vim.lsp.buf.hover, opts)
 
 		opts.desc = "Restart LSP"
 		keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts)
@@ -60,5 +52,7 @@ return {
 		keymap.set("n", "<leader>lI", function()
 			vim.lsp.inlay_hint.enable(0, not lsp.inlay_hint.is_enabled())
 		end, opts)
+
+		-- LUA LSP
 	end,
 }
