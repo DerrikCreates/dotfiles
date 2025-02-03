@@ -33,9 +33,31 @@ return {
 						-- Make sure this is at least 2.
 						-- 3 is recommended
 						min_keyword_length = 3,
+
 						opts = {
 							-- options for blink-cmp-dictionary
-							dictionary_files = { vim.fn.stdpath("config") .. "/" .. "dict/en_dict.txt" }, 
+							dictionary_files = { vim.fn.stdpath("config") .. "/" .. "dict/en_dict.txt" },
+
+							separate_output = function(output)
+								local items = {}
+
+								-- You may need to change the pattern to match your dictionary files
+								for line in output:gmatch("[^\r\n]+") do
+									table.insert(items, {
+										label = line,
+										insert_text = line,
+										-- If you want to disable the documentation feature, just set it to nil
+										documentation = {
+											get_command = "wn",
+											get_command_args = { line, "-over" },
+											resolve_documentation = function(output)
+												return output
+											end,
+										},
+									})
+								end
+								return items
+							end,
 						},
 					},
 				},
