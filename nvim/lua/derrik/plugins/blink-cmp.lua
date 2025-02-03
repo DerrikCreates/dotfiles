@@ -35,7 +35,7 @@ return {
 						min_keyword_length = 3,
 						opts = {
 							-- options for blink-cmp-dictionary
-							dictionary_files = { vim.fn.stdpath("config") .. "/" .. "dict/en_dict.txt" },
+							dictionary_files = { vim.fn.stdpath("config") .. "/" .. "dict/en_dict.txt" }, 
 						},
 					},
 				},

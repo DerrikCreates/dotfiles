@@ -26,3 +26,8 @@ vim.keymap.set("n", "<C-Left>", ":vertical resize -2<CR>", { noremap = true })
 vim.keymap.set("n", "<leader>se", function()
 	vim.diagnostic.open_float()
 end, { desc = "Show line error" })
+
+vim.opt.spell= true
+
+-- Toggle spell checking
+vim.api.nvim_set_keymap('n', '<leader>sp', ':set spell!<CR>', { noremap = true, silent = true , desc = "Spell check toggle" })
