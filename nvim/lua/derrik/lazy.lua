@@ -14,5 +14,5 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 	end
 end
 vim.opt.rtp:prepend(lazypath)
-
-require("lazy").setup({ { import = "derrik.plugins" }, { import = "derrik.plugins.lsp" } })
+-- try and to start collecting similar plugins into their own folders
+require("lazy").setup({ { import = "derrik.plugins" }, { import = "derrik.plugins.lsp" },{import = "derrik.plugins.md"} })

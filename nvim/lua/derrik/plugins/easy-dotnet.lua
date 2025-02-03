@@ -12,7 +12,7 @@ return {
 			if path == nil then
 				return vim.notify("Cursor is not on valid entry")
 			end
-
+			-- TODO: figure out creating .net file tempaltes in minifiles
 			vim.notify("path next line")
 			vim.notify(path)
 			MiniFiles.close()
