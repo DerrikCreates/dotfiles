@@ -7,7 +7,6 @@ return {
 			ensure_installed = {
 
 				"stylua",
-				"omnisharp",
 				"html-lsp",
 				"lua-language-server",
 				"csharpier",

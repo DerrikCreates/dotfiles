@@ -87,5 +87,6 @@ return {
 		})
 	end,
 
+	opts_extend = { "sources.default" },
 	version = "*",
 }

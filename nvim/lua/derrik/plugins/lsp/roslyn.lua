@@ -3,7 +3,7 @@ return {
 	event = { "BufReadPre", "BufNewFile" },
 	ft = "cs",
 
-	dependencies = { "roslyn.nvim", "blink.cmp" },
+	dependencies = { "blink.cmp" },
 
 	opts = {
 
@@ -11,17 +11,30 @@ return {
 	},
 
 	config = function()
-		--local capabilities = require("blink.cmp").get_lsp().capabilities()
 		require("roslyn").setup({
+
+			exe = {
+				"dotnet",
+				vim.fs.joinpath(
+					vim.fn.stdpath("data"),
+					"/mason/packages/roslyn/libexec/",
+					"Microsoft.CodeAnalysis.LanguageServer.dll"
+				),
+			},
+			args = {
+				"--logLevel=Information",
+				"--extensionLogDirectory=" .. vim.fs.dirname(vim.lsp.get_log_path()),
+			},
+
 			-- how to on_attach for roslyn lsp
 			-- https://github.com/seblj/roslyn.nvim/issues/8#issuecomment-2198336099
 			lock_target = false,
 			config = {
+				capabilities = require("blink.cmp").get_lsp_capabilities(),
 				on_attach = function(client)
 					require("lsp-overloads").setup(client, {})
 				end,
 				settings = {
-					--capabilities = capabilities,
 
 					["csharp|inlay_hints"] = {
 						csharp_enable_inlay_hints_for_implicit_object_creation = true,

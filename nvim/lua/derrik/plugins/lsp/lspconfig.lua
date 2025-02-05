@@ -8,10 +8,18 @@ return {
 		"williamboman/mason-lspconfig.nvim",
 		"folke/lazydev.nvim",
 	},
-	config = function()
+	opts = { servers = { lua_ls = {} } },
+	config = function(_, opts)
 		local lspconfig = require("lspconfig")
+		for server, config in pairs(opts.servers) do
+			print(server)
+			-- passing config.capabilities to blink.cmp merges with the capabilities in your
+			-- `opts[server].capabilities, if you've defined it
+			config.capabilities = require("blink.cmp").get_lsp_capabilities()
+			lspconfig[server].setup(config)
+		end
 
-		lspconfig.lua_ls.setup({})
+		-- lspconfig.lua_ls.setup({})
 
 		local keymap = vim.keymap
 
@@ -40,7 +48,6 @@ return {
 
 		opts.desc = "Show buffer diagnostics"
 		keymap.set("n", "<leader>sd", "<cmd>Telescope diagnostics bufnr=0<CR>", opts)
-
 
 		opts.desc = "Show documentation under cursor"
 		keymap.set("n", "<leader>sh", vim.lsp.buf.hover, opts)
