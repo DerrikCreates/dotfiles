@@ -15,7 +15,8 @@ return {
 				yaml = { "prettier" },
 				markdown = { "prettier" },
 				lua = { "stylua" },
-				cs = { "csharpier" },
+				--cs = { "csharpier" },
+				cs = { "astyle" },
 			},
 		})
 
