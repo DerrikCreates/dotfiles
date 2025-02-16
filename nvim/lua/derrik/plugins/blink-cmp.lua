@@ -12,19 +12,22 @@ return {
 		require("blink.cmp").setup({
 
 			signature = { enabled = true },
+			cmdline = {
+				keymap = {
+					preset = "super-tab",
+				},
+			},
 			keymap = {
 				preset = "enter",
 				["<C-J>"] = { "select_next", "fallback" },
 				["<C-K>"] = { "select_prev", "fallback" },
 				["<C-s>"] = { "show", "show_documentation", "hide_documentation" },
-
-				cmdline = { preset = "super-tab" },
 			},
 
 			-- Default list of enabled providers defined so that you can extend it
 			-- elsewhere in your config, without redefining it, due to `opts_extend`
 			sources = {
-				default = { "lsp", "path", "snippets", "dictionary", "buffer" },
+				default = { "lsp", "path", "snippets", "buffer", "dictionary" },
 				providers = {
 
 					dictionary = {
