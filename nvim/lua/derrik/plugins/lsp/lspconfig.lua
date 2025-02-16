@@ -8,7 +8,27 @@ return {
 		"williamboman/mason-lspconfig.nvim",
 		"folke/lazydev.nvim",
 	},
-	opts = { servers = { lua_ls = {} } },
+
+	opts = {
+		servers = {
+			-- https://luals.github.io/wiki/settings/
+			lua_ls = {
+				settings = {
+					Lua = {
+
+						hint = { enable = true, arrayIndex = "Enable", setType = true },
+						workspace = {
+							-- add path to libraries here
+							--[[ library = {
+								"",
+								"",
+							}, ]]
+						},
+					},
+				},
+			},
+		},
+	},
 	config = function(_, opts)
 		local lspconfig = require("lspconfig")
 		for server, config in pairs(opts.servers) do
@@ -31,6 +51,7 @@ return {
 		opts.desc = "Go to declaration"
 		keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
 
+		local h = { 1, 2, 3, 4, 5 }
 		opts.desc = "Show LSP definitions"
 		keymap.set("n", "gd", "<cmd>Telescope lsp_references<CR>", opts)
 
