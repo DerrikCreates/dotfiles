@@ -3,16 +3,12 @@ return {
 	event = { "BufReadPre", "BufNewFile" },
 	ft = "cs",
 
-	dependencies = { "blink.cmp" },
-
-	opts = {
-
-		broad_search = true,
-	},
+	dependencies = {},
 
 	config = function()
 		require("roslyn").setup({
 
+			broad_search = true,
 			exe = {
 				"dotnet",
 				vim.fs.joinpath(
@@ -24,13 +20,15 @@ return {
 			args = {
 				"--logLevel=Information",
 				"--extensionLogDirectory=" .. vim.fs.dirname(vim.lsp.get_log_path()),
+				"--stdio",
 			},
 
 			-- how to on_attach for roslyn lsp
 			-- https://github.com/seblj/roslyn.nvim/issues/8#issuecomment-2198336099
 			lock_target = false,
 			config = {
-				capabilities = require("blink.cmp").get_lsp_capabilities(),
+		
+				capabilities = require( "blink.cmp").get_lsp_capabilities(),
 				on_attach = function(client)
 					require("lsp-overloads").setup(client, {})
 				end,
