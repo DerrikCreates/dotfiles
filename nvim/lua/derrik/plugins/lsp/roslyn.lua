@@ -3,12 +3,31 @@ return {
 	event = { "BufReadPre", "BufNewFile" },
 	ft = "cs",
 
-	dependencies = {},
+	dependencies = {
+		{
+
+			"tris203/rzls.nvim",
+			config = function()
+				require("rzls").setup({})
+			end,
+		},
+	},
+
+	init = function()
+		vim.filetype.add({
+
+			extension = {
+				razor = "razor",
+				cshtml = "razor",
+			},
+		})
+	end,
 
 	config = function()
 		require("roslyn").setup({
 
 			broad_search = true,
+
 			exe = {
 				"dotnet",
 				vim.fs.joinpath(
@@ -21,14 +40,32 @@ return {
 				"--logLevel=Information",
 				"--extensionLogDirectory=" .. vim.fs.dirname(vim.lsp.get_log_path()),
 				"--stdio",
+				"--razorSourceGenerator=" .. vim.fs.joinpath(
+					vim.fn.stdpath("data") --[[@as string]],
+					"mason",
+					"packages",
+					"roslyn",
+					"libexec",
+					"Microsoft.CodeAnalysis.Razor.Compiler.dll"
+				),
+				"--razorDesignTimePath=" .. vim.fs.joinpath(
+					vim.fn.stdpath("data") --[[@as string]],
+					"mason",
+					"packages",
+					"rzls",
+					"libexec",
+					"Targets",
+					"Microsoft.NET.Sdk.Razor.DesignTime.targets"
+				),
 			},
 
 			-- how to on_attach for roslyn lsp
 			-- https://github.com/seblj/roslyn.nvim/issues/8#issuecomment-2198336099
 			lock_target = false,
 			config = {
-		
-				capabilities = require( "blink.cmp").get_lsp_capabilities(),
+
+				handlers = require("rzls.roslyn_handlers"),
+				capabilities = require("blink.cmp").get_lsp_capabilities(),
 				on_attach = function(client)
 					require("lsp-overloads").setup(client, {})
 				end,
