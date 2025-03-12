@@ -6,23 +6,25 @@ return {
 	dependencies = {
 		"williamboman/mason.nvim",
 		"williamboman/mason-lspconfig.nvim",
-		"folke/lazydev.nvim",
 	},
 
 	opts = {
 		servers = {
 			-- https://luals.github.io/wiki/settings/
+			html = {},
 			lua_ls = {
 				settings = {
 					Lua = {
 
 						hint = { enable = true, arrayIndex = "Enable", setType = true },
+
+						diagnostics = { globals = { "vim" } },
+
 						workspace = {
 							-- add path to libraries here
-							--[[ library = {
-								"",
-								"",
-							}, ]]
+							library = {
+								vim.env.VIMRUNTIME,
+							},
 						},
 					},
 				},

@@ -1,11 +1,15 @@
 return {
 	"saghen/blink.cmp",
+	commit = "69fe0ed74c48ba511fdc6c1846cf45f8d20cf67b",
 	dependencies = {
 		"rafamadriz/friendly-snippets",
 		"L3MON4D3/LuaSnip",
 		"xzbdmw/colorful-menu.nvim",
 		"Kaiser-Yang/blink-cmp-dictionary",
 	},
+
+	version = "*",
+	build = "cargo build --release",
 
 	config = function()
 		require("colorful-menu").setup({})
@@ -27,8 +31,9 @@ return {
 			-- Default list of enabled providers defined so that you can extend it
 			-- elsewhere in your config, without redefining it, due to `opts_extend`
 			sources = {
-				default = { "lsp", "path", "snippets", "buffer", "dictionary" },
+				default = {  "lsp", "path", "snippets", "buffer", "dictionary" },
 				providers = {
+
 
 					dictionary = {
 						module = "blink-cmp-dictionary",
@@ -66,6 +71,7 @@ return {
 				},
 			},
 			completion = {
+				
 				ghost_text = { enabled = false },
 				documentation = { auto_show = true, auto_show_delay_ms = 500 },
 
@@ -91,5 +97,4 @@ return {
 	end,
 
 	opts_extend = { "sources.default" },
-	version = "*",
 }
