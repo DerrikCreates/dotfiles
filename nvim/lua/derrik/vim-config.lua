@@ -4,10 +4,16 @@
 vim.g.mapleader = " "
 vim.api.nvim_set_option("clipboard", "unnamed")
 
+			
+ 
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.statuscolumn = "%s %l %r"
 vim.opt.numberwidth = 7
+
+
+vim.o.smartcase = true
+
 
 vim.keymap.set("n", "<S-TAB>", ":bprevious<cr>")
 
