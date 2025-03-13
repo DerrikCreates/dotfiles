@@ -10,6 +10,7 @@ vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.statuscolumn = "%s %l %r"
 vim.opt.numberwidth = 7
+vim.o.wrap = false
 
 
 vim.o.smartcase = true
