@@ -18,6 +18,7 @@ return {
 
 			signature = { enabled = true },
 			cmdline = {
+				completion = { menu = { auto_show = true } },
 				keymap = {
 					preset = "super-tab",
 				},
