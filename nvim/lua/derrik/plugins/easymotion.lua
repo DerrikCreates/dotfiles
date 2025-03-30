@@ -4,6 +4,6 @@ return{
 
 	config = function()
 		vim.g.EasyMotion_smartcase = 1
-		vim.keymap.set({"n", "v"}, "<leader><leader>", "<Plug>(easymotion-overwin-f2)", { desc = "Easy Motion" })
-	end,
+		vim.keymap.set({"n", "v"}, "<leader><leader>", "<Plug>(easymotion-s2)", { desc = "Easy Motion" })
+	end
 }
