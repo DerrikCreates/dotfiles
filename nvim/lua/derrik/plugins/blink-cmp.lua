@@ -1,11 +1,12 @@
 return {
 	"saghen/blink.cmp",
-	commit = "69fe0ed74c48ba511fdc6c1846cf45f8d20cf67b",
+	--commit = "69fe0ed74c48ba511fdc6c1846cf45f8d20cf67b",
 	dependencies = {
 		"rafamadriz/friendly-snippets",
 		"L3MON4D3/LuaSnip",
 		"xzbdmw/colorful-menu.nvim",
-		"Kaiser-Yang/blink-cmp-dictionary",
+		"ribru17/blink-cmp-spell",
+		--"Kaiser-Yang/blink-cmp-dictionary",
 	},
 
 	version = "*",
@@ -21,6 +22,7 @@ return {
 					preset = "super-tab",
 				},
 			},
+
 			keymap = {
 				preset = "enter",
 				["<C-J>"] = { "select_next", "fallback" },
@@ -31,10 +33,52 @@ return {
 			-- Default list of enabled providers defined so that you can extend it
 			-- elsewhere in your config, without redefining it, due to `opts_extend`
 			sources = {
-				default = {  "lsp", "path", "snippets", "buffer", "dictionary" },
+				default = {
+					"lsp",
+					"path",
+					"snippets",
+					"buffer",
+					"spell",
+				},
 				providers = {
 
+					spell = {
 
+						name = "Spell",
+						module = "blink-cmp-spell",
+						-- Setting custom icons in blink.cmp providers
+						transform_items = function(ctx, items)
+							for _, item in ipairs(items) do
+								item.kind_icon = ""
+								item.kind_name = "Spell"
+								item.kind_hl = "Spellhl"
+							end
+							return items
+						end,
+
+						opts = {
+							preselect_current_word = false,
+							use_cmp_spell_sorting = true,
+
+							--[[ 							-- EXAMPLE: Only enable source in `@spell` captures, and disable it
+							-- in `@nospell` captures.
+							enable_in_context = function()
+								local curpos = vim.api.nvim_win_get_cursor(0)
+								local captures = vim.treesitter.get_captures_at_pos(0, curpos[1] - 1, curpos[2] - 1)
+								local in_spell_capture = false
+								for _, cap in ipairs(captures) do
+									if cap.capture == "spell" then
+										in_spell_capture = true
+									elseif cap.capture == "nospell" then
+										return false
+									end
+								end
+								testee return in_spell_capture
+							end, ]]
+						},
+					},
+
+					--[[ 
 					dictionary = {
 						module = "blink-cmp-dictionary",
 						name = "Dict",
@@ -67,11 +111,27 @@ return {
 								return items
 							end,
 						},
-					},
+					}, ]]
 				},
 			},
+			fuzzy = {
+				sorts = { "exact", "score", "sort_text" },
+				--[[ 
+				sorts = { function(a, b)
+						local sort = require("blink.cmp.fuzzy.sort")
+						if a.source_id == "spell" and b.source_id == "spell" then
+							return sort.label(a, b)
+						end
+					end,
+					-- This is the normal default order, which we fall back to
+					"score",
+					"kind",
+					"label",
+				}, ]]
+			},
+
 			completion = {
-				
+
 				ghost_text = { enabled = false },
 				documentation = { auto_show = true, auto_show_delay_ms = 500 },
 
