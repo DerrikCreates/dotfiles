@@ -21,9 +21,11 @@ return {
 						diagnostics = { globals = { "vim" } },
 
 						workspace = {
+
 							-- add path to libraries here
 							library = {
 								vim.env.VIMRUNTIME,
+								vim.fn.stdpath("data") .. "/lazy/",
 							},
 						},
 					},
