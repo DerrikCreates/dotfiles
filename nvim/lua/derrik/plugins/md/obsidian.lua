@@ -1,6 +1,6 @@
 return {
 
-	"epwalsh/obsidian.nvim",
+	"obsidian.nvim/obsidian.nvim",
 	version = "*", -- recommended, use latest release instead of latest commit
 	lazy = false,
 	ft = "markdown",
@@ -18,7 +18,7 @@ return {
 
 		-- see below for full list of optional dependencies 👇
 	},
-	enabled = false,
+	enabled = true,
 	config = function()
 		require("obsidian").setup({
 			workspaces = {

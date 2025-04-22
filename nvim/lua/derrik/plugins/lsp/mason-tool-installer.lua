@@ -11,7 +11,8 @@ return {
 				"lua-language-server",
 				"csharpier",
 				"prettier",
-				"rzls"
+				"rzls",
+				"clangd"
 			},
 		})
 	end,

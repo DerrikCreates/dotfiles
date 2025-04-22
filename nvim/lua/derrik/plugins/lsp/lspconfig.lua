@@ -11,6 +11,7 @@ return {
 	opts = {
 		servers = {
 			-- https://luals.github.io/wiki/settings/
+			clangd = {},
 			html = {},
 			lua_ls = {
 				settings = {
@@ -34,6 +35,27 @@ return {
 		},
 	},
 	config = function(_, opts)
+		-- avalonia lsp
+
+		vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
+			pattern = { "*.axaml" },
+			callback = function(event)
+				vim.lsp.start({
+
+					vim.lsp.set_log_level("debug"),
+
+					require("vim.lsp.log").set_format_func(vim.inspect),
+
+					name = "avalonia",
+					cmd = {
+						"AvaloniaLanguageServer",
+					},
+					root_dir = vim.fn.getcwd(),
+					capabilities = require("blink.cmp").get_lsp_capabilities(),
+				})
+			end,
+		})
+
 		local lspconfig = require("lspconfig")
 		for server, config in pairs(opts.servers) do
 			print(server)

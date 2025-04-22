@@ -9,7 +9,7 @@ return {
 
 	config = function()
 		-- telling vim to treat .xaml files as .xml
-		vim.filetype.add({ extension = { xaml = "xml" } })
+		--	vim.filetype.add({ extension = { xaml = "xml" } })
 		vim.filetype.add({ extension = { axaml = "xml" } })
 		local ts = require("nvim-treesitter.configs")
 		ts.setup({
