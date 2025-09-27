@@ -1,16 +1,20 @@
 return {
-    "mason-org/mason.nvim",
-    opts = {
+	"mason-org/mason.nvim",
+	opts = {
 
-         registries = {
-            "github:mason-org/mason-registry",
-            "github:Crashdummyy/mason-registry"
-        },
+		registries = {
+			"github:mason-org/mason-registry",
+			"github:Crashdummyy/mason-registry",
+		},
 
-        ensure_installed = {
-            "roslyn",
-            "rzls",
-            "lua-language-server"
-        }
-    }
+		ensure_installed = {
+			"astyle",
+			"csharpier",
+			"stylua",
+			"roslyn",
+			"rzls",
+			"lua-language-server",
+			"netcoredbg",
+		},
+	},
 }
