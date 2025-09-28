@@ -4,7 +4,7 @@ return {
 	---@type oil.SetupOpts
 	opts = {},
 	keys = {
-		{ "<leader>f", "<cmd>Oil<cr>", mode = "n" },
+		{ "go", "<cmd>Oil<cr>", mode = "n" },
 	},
 	dependencies = { { "echasnovski/mini.icons", opts = {} } },
 	lazy = false,
