@@ -1,7 +1,7 @@
 return{"nvim-treesitter/nvim-treesitter",
 
 opts={
-
+	auto_install = true,
 	ensure_installed={
 		"c_sharp",
 		"razor",
@@ -10,8 +10,9 @@ opts={
 		"lua",
 		"typescript",
 		"js",
-	}
+	},
+	highlight = {enable = true}
 
 },
 
-branch = 'master', lazy = false, build = ":TSUpdate"}
+branch = 'main', lazy = false, build = ":TSUpdate"}
